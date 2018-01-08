@@ -4,7 +4,7 @@ set -e
 
 PASS=`pwgen -s 40 1`
 
-mysql -uroot <<MYSQL_SCRIPT
+mysql -u root -p <<MYSQL_SCRIPT
 CREATE DATABASE $1;
 CREATE USER '$1'@'localhost' IDENTIFIED BY '$PASS';
 GRANT ALL PRIVILEGES ON $1.* TO '$1'@'localhost';
